@@ -15,7 +15,7 @@ import threading
 URLS = ["https://10times.com/bengaluru-in", "https://10times.com/mumbai-in"]
 API_URL = "http://localhost:3000/api/event"
 BEARER_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q1MGEyMjUxMDI1MWQ4NzBhODZhNWQifQ.HUjjNjgX0k5_-YGm911ffJJ7xLSKOnvlWQb1xSiFFOg"
-INTERVAL_HOURS = 3
+INTERVAL_HOURS = 1
 
 # Set up Chrome options
 options = webdriver.ChromeOptions()
@@ -41,7 +41,7 @@ def format_date(date_str):
     except (ValueError, IndexError):
         return "N/A"
 
-def scrape_events(url, limit=4, processed_hashes=None):
+def scrape_events(url, limit=10, processed_hashes=None):
     if processed_hashes is None:
         processed_hashes = set()
     try:
